@@ -13,7 +13,7 @@ module.exports = class BeliefRole extends BaseCommand {
             new MessageSelectMenu()
             .setCustomId('religion')
             .setMaxValues(1)
-            .setPlaceholder(`🙏 Select your religion`)
+            .setPlaceholder(`Select your religion`)
             .addOptions([
                 {
                   label: `Christian`,
