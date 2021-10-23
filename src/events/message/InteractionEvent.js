@@ -22,6 +22,7 @@ module.exports = class InteractionEvent extends BaseEvent {
                 { name: 'atheist', id: '900769195237732443'},
                 { name: 'unaffliated', id: '900847668123824169'},
                 { name: 'mormon', id: '900768913057542205'},
+                { name: 'hebrew', id: '900769946215272468'},
                 ];
                 const role1 = role.find((item) => {
                     return item.name === `${interaction.values[0]}`

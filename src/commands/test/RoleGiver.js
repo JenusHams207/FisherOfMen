@@ -36,6 +36,11 @@ module.exports = class BeliefRole extends BaseCommand {
                   value: 'mormon',
                 },
                 {
+                  label: `Black Hebrew Israelite`,
+                  description: 'Select this option to get the Black Hebrew Israelite role',
+                  value: 'hebrew',
+                },
+                {
                   label: `Atheist/Agnostic`,
                   description: 'Select this option to get the Muslim role',
                   value: 'atheist',
