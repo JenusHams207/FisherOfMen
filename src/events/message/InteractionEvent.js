@@ -124,6 +124,7 @@ module.exports = class InteractionEvent extends BaseEvent {
                         interaction.deferUpdate();
                     }
                 }
+                interaction.values = [];
             } else if(interaction.customId === 'ping') {
                 const role = [
                     {name: 'debate', id: '901436877700210728'},
