@@ -3,7 +3,7 @@ const BaseCommand = require('../../utils/structures/BaseCommand');
 
 module.exports = class BeliefRole extends BaseCommand {
     constructor() {
-        super('blrfgr101', 'moderation', []);
+        super('blrfgr1011', 'moderation', []);
     };
     
     async run(client, message, args) {
@@ -202,6 +202,95 @@ module.exports = class BeliefRole extends BaseCommand {
         .setDescription(`Hey, how old are you? Please select an age so people will know your age! 19+ are respected!`)
         .setFooter(`Global Fellowship`, message.guild.iconURL());
         message.channel.send({embeds: [embedMessage4], components: [row4]});
+
+        const row5 = new MessageActionRow().addComponents(
+            new MessageSelectMenu()
+            .setCustomId('region')
+            .setMaxValues(1)
+            .setPlaceholder(`Select your regions`)
+            .addOptions([
+                {
+                    label: `South America`,
+                    description: 'Please select this option if you live in South America',
+                    value: 'samerica',
+                },
+                {
+                    label: `North America`,
+                    description: 'Please select this option if you live in South America',
+                    value: 'namerica',
+                },
+                {
+                    label: `Europe`,
+                    description: 'Please select this option if you live in Europe',
+                    value: 'europe',
+                },
+                {
+                    label: `Asia`,
+                    description: 'Please select this option if you live in Asia!',
+                    value: 'asia',
+                },
+                {
+                    label: `Africa`,
+                    description: 'Please select this option if you live in Africa',
+                    value: 'africa',
+                },
+                {
+                    label: `Oceania`,
+                    description: 'Please select this option if you live in Oceania',
+                    value: 'oceania',
+                }
+            ])
+        )
+
+        const embedMessage5 = new MessageEmbed()
+        .setAuthor(`Regions - Personal Roles`)
+        .setColor("#67ff21")
+        .setDescription(`Please select your continent or current place of residence! Have multiple residences? Feel free to select multiple regions!`)
+        .setFooter(`Global Fellowship`, message.guild.iconURL())
+
+        message.channel.send({embeds: [embedMessage5], components: [row5]});
+
+        const row6 = new MessageActionRow().addComponents(
+            new MessageSelectMenu()
+            .setCustomId('ping')
+            .setMaxValues(5)
+            .setPlaceholder(`Select your notification roles`)
+            .addOptions([
+                {
+                    label: `Sermon Ping`,
+                    description: 'Pick this role to get notifications about worships!',
+                    value: 'sermon',
+                },
+                {
+                    label: `Bible Study Ping`,
+                    description: 'Pick this role to get notifications about bible studies!',
+                    value: 'study',
+                },
+                {
+                    label: `Event Ping`,
+                    description: 'Pick this role to get notifications about events!',
+                    value: 'event',
+                },
+                {
+                    label: `Prayer Ping`,
+                    description: 'Pick this role to get notifications about praying events!',
+                    value: 'prayer',
+                },
+                {
+                    label: `Debate Ping`,
+                    description: 'Pick this role to get notifications about debates!',
+                    value: 'debate',
+                },
+            ])
+        )
+
+        const embedMessage6 = new MessageEmbed()
+        .setAuthor(`Ping Roles - Settings`)
+        .setColor("#67ff21")
+        .setDescription(`Here you can select some roles to receive notifications about events, news, etc...`)
+        .setFooter(`Global Fellowship`, message.guild.iconURL());
+
+        message.channel.send({embeds: [embedMessage6], components: [row6]});
 
     }
 }

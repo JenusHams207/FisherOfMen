@@ -103,6 +103,105 @@ module.exports = class InteractionEvent extends BaseEvent {
                     }
                 }
                 interaction.values = [];
+            } else if(interaction.customId === 'region') {
+                const role = [
+                    { name: 'samerica', id: '901437168751378442'},
+                    { name: 'namerica', id: '901437137713500201'},
+                    { name: 'europe', id: '901437204105142334'},
+                    { name: 'asia', id: '901437097053921370'},
+                    { name: 'africa', id: '901437070055211028'},
+                    { name: 'oceania', id: '902115804282249267'},
+                ];
+                const role1 = role.find((item) => {
+                    return item.name === `${interaction.values[0]}`
+                });
+                if(interaction.values.length === 1) {
+                    if (interaction.values[0].includes(role1.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.deferUpdate();
+                    }
+                }
+            } else if(interaction.customId === 'ping') {
+                const role = [
+                    {name: 'debate', id: '901436877700210728'},
+                    {name: 'prayer', id: '901437041944969267'},
+                    {name: 'study', id: '901436714067828777'},
+                    {name: 'event', id: '901436915117596732'},
+                    {name: 'sermon', id: '901436837514604595'},
+                ];
+
+                const role1 = role.find((item) => {
+                    return item.name === `${interaction.values[0]}`
+                });
+                const role2 = role.find((item) => {
+                    return item.name === `${interaction.values[1]}`
+                });
+                const role3 = role.find((item) => {
+                    return item.name === `${interaction.values[2]}`
+                });
+                const role4 = role.find((item) => {
+                    return item.name === `${interaction.values[3]}`
+                });
+                const role5 = role.find((item) => {
+                    return item.name === `${interaction.values[4]}`
+                });
+
+                if(interaction.values.length === 1) {
+                    if (interaction.values[0].includes(role1.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.deferUpdate();
+                    }
+                } else if(interaction.values.length === 2) {
+                    if (interaction.values[0].includes(role1.name) || interaction.values[1].includes(role2.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.member.roles.add(role2.id);
+                        interaction.deferUpdate();
+                    }
+            
+                } else if(interaction.values.length === 3) {
+                    if (interaction.values[0].includes(role1.name) || interaction.values[1].includes(role2.name) || interaction.values[2].includes(role3.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.member.roles.add(role2.id);
+                        interaction.member.roles.add(role3.id);
+                        interaction.deferUpdate();
+                    }
+                } else if(interaction.values.length === 4){
+                    if (interaction.values[0].includes(role1.name) || interaction.values[1].includes(role2.name) || interaction.values[2].includes(role3.name) || interaction.values[3].includes(role4.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.member.roles.add(role2.id);
+                        interaction.member.roles.add(role3.id);
+                        interaction.member.roles.add(role4.id);
+                        interaction.deferUpdate();
+                    }
+                } else if(interaction.values.length === 5) {
+                    if (interaction.values[0].includes(role1.name) || interaction.values[1].includes(role2.name) || interaction.values[2].includes(role3.name) || interaction.values[3].includes(role4.name) || interaction.values[4].includes(role5.name)) {
+                        role.filter((item) => {
+                            interaction.member.roles.remove(item.id);
+                        })
+                        interaction.member.roles.add(role1.id);
+                        interaction.member.roles.add(role2.id);
+                        interaction.member.roles.add(role3.id);
+                        interaction.member.roles.add(role4.id);
+                        interaction.member.roles.add(role5.id);
+                        interaction.deferUpdate();
+                    }
+                }
+                interaction.values = [];
             }
         }
     }
